@@ -19,5 +19,6 @@ steps:
     npm install -g @angular/cli
     npm install
     ng test
+    ng lint
     ng build --prod
   displayName: 'npm install and build'
