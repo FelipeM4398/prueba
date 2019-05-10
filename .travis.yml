@@ -2,12 +2,16 @@ language: node_js
 node_js:
   - '10.15.3'
 
+jdk:
+  - oraclejdk8
+
 branches:
   only:
     - master
 
 addons:
   chrome: stable
+  sonarcloud: true
 
 before_script:
  - npm install -g @angular/cli
@@ -20,6 +24,8 @@ script:
   - ng lint
   - ng test
   - ng build --prod
+  - sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.organization=felipem4398-github -Dsonar.projectKey=FelipeM4398_prueba -Dsonar.sources='./src' -X
+  
 deploy:
   provider: pages
   skip_cleanup: true
