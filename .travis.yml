@@ -5,18 +5,16 @@ node_js:
 jdk:
   - oraclejdk8
 
-addons:
-  sonarcloud:
-    organization: "felipem4398-github" # the key of the org you chose at step #3
-    token:
-      secure: $SONAR_TOKEN # encrypted value of your tokenue
-
 branches:
   only:
     - master
 
 addons:
   chrome: stable
+  sonarcloud:
+    organization: "felipem4398-github" # the key of the org you chose at step #3
+    token:
+      secure: $SONAR_TOKEN # encrypted value of your tokenue
 
 before_script:
  - npm install -g @angular/cli
