@@ -7,7 +7,7 @@ branches:
 before_script:
  - npm install -g @angular/cli
 script:
-  - ng build --prod
+  - ng build --prod --base-href https://FelipeM4398.github.io/prueba/
   - ng test
 deploy:
   provider: pages
