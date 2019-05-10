@@ -11,10 +11,7 @@ branches:
 
 addons:
   chrome: stable
-  sonarcloud:
-    organization: "felipem4398-github" # the key of the org you chose at step #3
-    token:
-      secure: $SONAR_TOKEN # encrypted value of your tokenue
+  sonarcloud: true
 
 before_script:
  - npm install -g @angular/cli
@@ -26,7 +23,8 @@ cache:
 script:
   - ng lint
   - ng test
-  - sonar-scanner
+  - sonar-scanner -Dsonar.projectKey=FelipeM4398_prueba -Dsonar.organization=felipem4398-github -Dsonar.sources=src -Dsonar.host.url=https://sonarcloud.io
+  -Dsonar.login=$SONAR_TOKEN
   - ng build --prod
 deploy:
   provider: pages
