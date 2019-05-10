@@ -13,5 +13,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB
+  local_dir: dist/prueba
   on:
     branch: master
