@@ -9,3 +9,11 @@ before_script:
 script:
   - ng build --prod
   - ng test
+after_succes:
+  deploy:
+    provider: pages
+    skip_cleanup: true
+    github_token: $GITHUB
+    local_dir: dist/ChampionsLeagueApp
+    on:
+      branch: master
